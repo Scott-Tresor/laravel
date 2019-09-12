@@ -15,6 +15,9 @@
               <input type="text" class="form-control" name="prenom"  placeholder="votre prenom" value="{{ old('prenom') }}">
             </div>
             <div class="form-group">
+              <input type="email" class="form-control" name="email"  placeholder="votre adresse email" value="{{ old('email') }}">
+            </div>
+            <div class="form-group">
               <input type="password" class="form-control" name="password"  placeholder="votre mot de passe">
             </div>
             <div class="form-group">
