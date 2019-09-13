@@ -26,4 +26,6 @@ Route::get('/deconnexion', 'ComCompteController@deconnexion');
 
 Route::post('/modifier-compte', 'CompteController@modificationCompte');
 
+Route::post('/messages', 'MessageController@nouveau');
+
 Route::get('/{email}', 'UtilisateursController@voir');
