@@ -9,9 +9,9 @@
         <h1>Les utilisateurs</h1>
         <ul>
             @foreach($utilisateurs as $utilisateur)
-                <li>{{ $utilisateur->email }}</li>
-                <li>{{ $utilisateur->password }}</li>
-                <li>{{ $utilisateur->username }}</li>
+                <li>
+                    <a href="/{{ $utilisateur->email }}">{{ $utilisateur->username }}</a>
+                </li>
             @endforeach
         </ul>
     </div>
