@@ -9,10 +9,22 @@ class CompteController extends Controller
     public function accueil()
     {
         if (auth()->guest()) {
-            return redirect('/connexion')->withErros([
-                'email' => 'Vous devez etre connecter pour voir cette page'
-            ]);
+            flash('Vous devez etre connecter pour voir cette page')->errors();
+            return redirect('/connexion');
         }
         return view('mon-compte');
+    }
+
+    public function deconnexion()
+    {
+        auth()->logout();
+        flash('vous etes maintenant deconnecter')->success();
+
+        return redirect('/');
+    }
+
+    public function modificationCompte()
+    {
+
     }
 }

@@ -22,3 +22,6 @@ Route::post('/connexion', 'ConnexionController@traitement');
 Route::get('/utilisateur', 'UtilisateursController@liste');
 
 Route::get('/mon-compte', 'CompteController@accueil');
+Route::get('/deconnexion', 'ComCompteController@deconnexion');
+
+Route::post('/modification-compte', 'CompteController@modificationCompte');

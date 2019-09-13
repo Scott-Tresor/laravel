@@ -13,6 +13,9 @@
 
     </head>
     <body>
+        <div class="container mt-5">
+            @include('flash::message')
+        </div>
 
         @yield('content')
 

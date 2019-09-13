@@ -24,6 +24,7 @@ class ConnexionController extends Controller
         ]);
 
         if ($result) {
+            flash('Bienvenue, vous etes maintenant connecter')->success();
             return redirect('/mon-compte');
         }
 

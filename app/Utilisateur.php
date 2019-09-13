@@ -22,4 +22,14 @@ class Utilisateur extends Model implements Authenticatable
     {
         return $this->password;
     }
+
+    /**
+     * Get the column name for the "remember me" token.
+     *
+     * @return string
+     */
+    public function getRememberTokenName()
+    {
+        return '';
+    }
 }
