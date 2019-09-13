@@ -13,6 +13,20 @@ class ConnexionController extends Controller
 
     public function traitement()
     {
+        request()->validate([
+            'email' => ['required','email'],
+            'password' => ['required','min:7']
+        ]);
 
+        $result = auth()->attempt([
+            'email' => request('email'),
+            'password' => request('password')
+        ]);
+
+        if ($result) {
+            return redirect('/mon-compte');
+        }
+
+        return "connexion reussi avec succee";
     }
 }

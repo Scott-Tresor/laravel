@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="container mt-5">
-        <form method="POST" action="/inscription" class="needs-validation" novalidate>
+        <form method="POST" action="/inscription" class="form">
             @csrf
             <div class="form-group">
               <input type="text" class="form-control" name="prenom"  placeholder="votre prenom" value="{{ old('prenom') }}">

@@ -20,3 +20,5 @@ Route::get('/connexion', 'ConnexionController@formulaire');
 Route::post('/connexion', 'ConnexionController@traitement');
 
 Route::get('/utilisateur', 'UtilisateursController@liste');
+
+Route::view('/compte', 'mon-compte');
