@@ -11,11 +11,6 @@ class MessageController extends Controller
      */
     public function nouveau()
     {
-        if (auth()->guest()) {
-            flash('Vous devez etre connecter pour voir cette page')->errors();
-            return redirect('/connexion');
-        }
-
         request()->validate([
             'contenue' => ['required']
         ]);
