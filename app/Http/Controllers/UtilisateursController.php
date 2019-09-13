@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Utilisateur;
+use App\Message;
 
 class UtilisateursController extends Controller
 {
@@ -17,9 +18,11 @@ class UtilisateursController extends Controller
     public function voir()
     {
         $email = request('email');
-        $utilisateurs = Utilisateur::where('email', $email)->first();
+        $utilisateurs = Utilisateur::where('email', $email)->firstOrFail();
+        $messages = Message::where('username_id', auth()->id())->latest()->get();
         return view('utilisateurs',[
             'utilisateur' => $utilisateurs,
+            'message' => $messages
         ]);
     }
 }

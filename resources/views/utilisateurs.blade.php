@@ -23,5 +23,12 @@
                 </div>
             </form>
         @endif
+
+        <hr>
+        @foreach($message as $messages)
+            <strong>{{ $messages->created_at }}</strong> <br>
+
+            <p>{{ $messages->contenu }}</p>
+        @endforeach
     </div>
 @endsection

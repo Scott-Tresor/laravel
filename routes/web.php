@@ -21,11 +21,12 @@ Route::post('/connexion', 'ConnexionController@traitement');
 
 Route::get('/', 'UtilisateursController@liste');
 
-Route::get('/mon-compte', 'CompteController@accueil');
-Route::get('/deconnexion', 'CompteController@deconnexion');
+Route::group(['middleware' => 'App\Http\Middleware\Auth'], function () {
+    Route::get('/mon-compte', 'CompteController@accueil');
+    Route::get('/deconnexion', 'CompteController@deconnexion');
+    Route::post('/modifier-compte', 'CompteController@modificationCompte');
+    Route::post('/messages', 'MessageController@nouveau');
 
-Route::post('/modifier-compte', 'CompteController@modificationCompte');
-
-Route::post('/messages', 'MessageController@nouveau');
+});
 
 Route::get('/{email}', 'UtilisateursController@voir');
