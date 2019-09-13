@@ -25,6 +25,20 @@ class CompteController extends Controller
 
     public function modificationCompte()
     {
+        if (auth()->guest()) {
+            flash('Vous devez etre connecter pour voir cette page')->errors();
+            return redirect('/connexion');
+        }
 
+        request()->validate([
+            'password' => ['required','confirmed','min:7'],
+            'password_confirmation' => ['required']
+        ]);
+
+        auth()->user()->update([
+            'password' => bcrypt(request('password')),
+        ]);
+
+        flash("Votre mot de passe a ete mise a jours")->success();
     }
 }
