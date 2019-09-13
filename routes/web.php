@@ -25,6 +25,8 @@ Route::post('/inscription', function () {
         'email' => ['required','email'],
         'password' => ['required','confirmed','min:7'],
         'password_confirmation' => ['required']
+    ],[
+        'password.min' => "Pour des raisons de securite veillez saisir un mot de passe de :min caracteres."
     ]);
 
     $utilisateur = App\Utilisateur::create([
@@ -33,11 +35,7 @@ Route::post('/inscription', function () {
         'password' => bcrypt(request('password'))
     ]);
 
-    return "salut tu va bien" . request('prenom');
+    return "Inscription reussit";
 });
 
-Route::get('/utilisateur', function () {
-    return view('utilisateur',[
-        'utilisateurs' => App\Utilisateur::all()
-    ]);
-});
+Route::get('/utilisateur', 'UtilisateursController@liste');
