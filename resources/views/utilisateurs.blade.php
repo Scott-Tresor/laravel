@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="container mt-5">
-        <h2>{{ $utilisateur->username }}</h2>
+        <h2></h2>
 
         @if(auth()->check() AND auth()->user()->id === $utilisateur->id)
 

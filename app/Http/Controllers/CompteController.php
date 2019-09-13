@@ -9,7 +9,7 @@ class CompteController extends Controller
     public function accueil()
     {
         if (auth()->guest()) {
-            flash('Vous devez etre connecter pour voir cette page')->errors();
+            flash('Vous devez etre connecter pour voir cette page')->error();
             return redirect('/connexion');
         }
         return view('mon-compte');
@@ -26,7 +26,7 @@ class CompteController extends Controller
     public function modificationCompte()
     {
         if (auth()->guest()) {
-            flash('Vous devez etre connecter pour voir cette page')->errors();
+            flash('Vous devez etre connecter pour voir cette page')->error();
             return redirect('/connexion');
         }
 

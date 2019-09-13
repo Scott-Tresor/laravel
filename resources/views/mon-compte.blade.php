@@ -10,9 +10,9 @@
 
         <p>Bienvue  tu est connecter</p>
 
-        <a href="/modifier-compte" class="btn btn-warning">Deconnexion</a>
+        <a href="/deconnexion" class="btn btn-warning mb-4">Deconnexion</a>
 
-        <form method="POST" action="/inscription" class="form">
+        <form method="POST" action="/modifier-compte" class="form">
             @csrf
             <div class="form-group">
               <input type="password" class="form-control" name="password"  placeholder="modifier votre mot de passe">
