@@ -27,6 +27,8 @@ class ConnexionController extends Controller
             return redirect('/mon-compte');
         }
 
-        return "connexion reussi avec succee";
+        return back()->withInput()->withErros([
+            'email' => "vos identifiants sont incorrecte"
+        ]);
     }
 }
