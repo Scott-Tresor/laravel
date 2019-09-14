@@ -10,8 +10,6 @@
 
         <p>Bienvue  tu est connecter</p>
 
-        <a href="/deconnexion" class="btn btn-warning mb-4">Deconnexion</a>
-
         <form method="POST" action="/modifier-compte" class="form">
             @csrf
             <div class="form-group">
