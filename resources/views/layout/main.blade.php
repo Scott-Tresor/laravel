@@ -13,7 +13,7 @@
 
     </head>
     <body>
-        @include('layout.navbar')
+        @include('layout.nav')
 
         <div class="container mt-5">
             @include('flash::message')

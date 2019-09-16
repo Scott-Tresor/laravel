@@ -28,12 +28,19 @@
             <div class="collapse navbar-collapse ml-lg-5" id="navbarNav">
                 <ul class="navbar-nav ml-lg-auto">
                     @auth
-                        @include('layout.navbar-item', ['lien' => '/', 'nom' => 'Contact'])
-                        @include('layout.navbar-item', ['lien' => 'mon-compte', 'nom' => 'mon-compte'])
-                        @include('layout.navbar-item', ['lien' => 'deconnexion', 'nom' => 'deconnexion'])
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->is('/mon-compte') ? 'active' : '' }}" href="/mon-compte">mon-compte</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/deconnexion">deconnexion</a>
+                        </li>
                     @else
-                        @include('layout.navbar-item', ['lien' => 'connexion', 'nom' => 'connexion'])
-                        @include('layout.navbar-item', ['lien' => 'inscription', 'nom' => 'inscription'])auth
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->is('/connexion') ? 'active' : '' }}" href="/connexion">connexion</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->is('/inscription') ? 'active' : '' }}" href="/inscription">Inscription</a>
+                        </li>
                     @endauth
                 </ul>
             </div>

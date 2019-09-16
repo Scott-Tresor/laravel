@@ -13,7 +13,7 @@ class Utilisateur extends Model implements Authenticatable
 
     protected $fillable = ['username','email','password'];
 
-    public function messages()
+    public function message()
     {
         return $this->hasMany(Message::class)->latest();
     }

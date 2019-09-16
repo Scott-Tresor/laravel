@@ -19,9 +19,11 @@ class UtilisateursController extends Controller
     {
         $email = request('email');
         $utilisateurs = Utilisateur::where('email', $email)->firstOrFail();
+        $messages = Message::where('username_id', $utilisateurs->id)->latest()->get();
 
         return view('utilisateurs',[
             'utilisateur' => $utilisateurs,
+            'messages' => $messages
         ]);
     }
 }
