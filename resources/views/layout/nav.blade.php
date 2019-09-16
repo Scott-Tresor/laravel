@@ -15,6 +15,7 @@
                 </div>
             </div>
         </div>
+        <hr>
     @endauth
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">

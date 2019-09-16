@@ -1,8 +1,6 @@
 @extends('layout.main')
 
-@section('title')
-    Utilisateurs
-@endsection
+@section('title','Utilisateur')
 
 @section('content')
     <div class="container mt-5">
@@ -12,10 +10,18 @@
                 {{ $utilisateur->username }}
             </div>
             <div class="col-lg-4">
-                <form method="post" action="/{{ $utilisateur->email }}">
-                    @csrf
-                    <button type="submit" class="btn btn-outline-success">Suivre</button>
-                </form>
+                @auth
+                    <form method="post" action="/{{ $utilisateur->email }}/suivis">
+                        @csrf
+                        <button type="submit" class="btn btn-outline-success btn-sm">
+                            @if(auth()->user()->suit($utilisateur))
+                                Ne plus Suivre
+                            @else
+                                Suivre
+                            @endif
+                        </button>
+                    </form>
+                @endauth
             </div>
         </div>
         </h2>
@@ -32,7 +38,7 @@
                     <p class="text-danger">{{ $errors->first('contenue') }}</p>
                 @endif
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Publier <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></button>
+                    <button type="submit" class="btn btn-outline-primary">Publier <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></button>
                 </div>
             </form>
         @endif
@@ -42,6 +48,5 @@
             <strong>{{ $message->created_at }}</strong> <br>
             <p>{{ $message->contenu }}</p>
         @endforeach
-
     </div>
 @endsection
