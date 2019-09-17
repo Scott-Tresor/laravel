@@ -13,6 +13,10 @@
                 @auth
                     <form method="post" action="/{{ $utilisateur->email }}/suivis">
                         @csrf
+
+                        @if(auth()->user()->suit($utilisateur))
+                            {{ method_field('delete') }}
+                        @endif
                         <button type="submit" class="btn btn-outline-success btn-sm">
                             @if(auth()->user()->suit($utilisateur))
                                 Ne plus Suivre

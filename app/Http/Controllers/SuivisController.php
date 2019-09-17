@@ -10,11 +10,23 @@ class SuivisController extends Controller
     public function nouveau()
     {
         $utilisateurSuivi = auth()->user();
-        $utilisateurQuiSui = Utilisateur::where('email', request('email'))->firstOrFail();
+        $utilisateurQuiVaui = Utilisateur::where('email', request('email'))->firstOrFail();
 
-        $utilisateurSuivi->suivis()->attach($utilisateurQuiSui);
+        $utilisateurSuivi->suivis()->attach($utilisateurQuiVaui);
 
-        flash('Vous suiviez maintenant {{ $utilisateurQuiSui->username }}')->success();
+        flash('Vous suiviez maintenant cette utilisateur' )->success();
         return back();
+    }
+
+    public function enlever()
+    {
+        $utilisateurQuiSuit = auth()->user();
+        $utilisateurQuiEstSuivis = Utilisateur::where('email', request('email'))->firstOrFail();
+
+        $utilisateurQuiSuit->suivis()->detach($utilisateurQuiEstSuivis);
+
+        flash('Vous ne suiviez plus cette utilisateur')->success();
+        return back();
+
     }
 }

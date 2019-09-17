@@ -27,6 +27,8 @@ Route::group(['middleware' => 'App\Http\Middleware\Auth'], function () {
     Route::post('/modifier-compte', 'CompteController@modificationCompte');
     Route::post('/messages', 'MessageController@nouveau');
     Route::post('/{email}/suivis', 'Suiviscontroller@nouveau');
+
+    Route::delete('/{email}/suivis', 'SuivisController@enlever');
 });
 
 Route::get('/{email}', 'UtilisateursController@voir');
