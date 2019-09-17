@@ -3,5 +3,7 @@
 @section('title','Mail')
 
 @section('content')
-    <h1>Vous avez un nouveausuiveur</h1>
+    @component('mail::message')
+        # Vous avez un *nouveausuiveur* {{ $suiveur->email }}
+    @endcomponent
 @endsection

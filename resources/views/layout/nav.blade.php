@@ -30,6 +30,9 @@
                 <ul class="navbar-nav ml-lg-auto">
                     @auth
                         <li class="nav-item">
+                            <a class="nav-link {{ request()->is('/actualite') ? 'active' : '' }}" href="/actualite">Actualite</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link {{ request()->is('/mon-compte') ? 'active' : '' }}" href="/mon-compte">mon-compte</a>
                         </li>
                         <li class="nav-item">

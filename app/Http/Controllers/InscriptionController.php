@@ -27,6 +27,7 @@ class InscriptionController extends Controller
             'email' => request('email'),
             'password' => bcrypt(request('password'))
         ]);
-        return "Inscription reussit";
+        flash('Veillez vous connecter et profiter de votre site')->success();
+        return redirect('connexion');
     }
 }

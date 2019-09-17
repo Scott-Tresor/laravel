@@ -11,14 +11,15 @@ class NouveauSuiveur extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $suiveur;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($suiveur)
     {
-        //
+        $this->suiveur = $suiveur;
     }
 
     /**
@@ -28,6 +29,8 @@ class NouveauSuiveur extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.nouveausuiveur');
+        return $this
+            ->subject('Vous avez un nouveau suiveur')
+            ->markdown('mail.nouveausuiveur');
     }
 }

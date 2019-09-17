@@ -22,6 +22,7 @@ Route::post('/connexion', 'ConnexionController@traitement');
 Route::get('/', 'UtilisateursController@liste');
 
 Route::group(['middleware' => 'App\Http\Middleware\Auth'], function () {
+    Route::get('/actualite', 'ActualiteController@liste');
     Route::get('/mon-compte', 'CompteController@accueil');
     Route::get('/deconnexion', 'CompteController@deconnexion');
     Route::post('/modifier-compte', 'CompteController@modificationCompte');

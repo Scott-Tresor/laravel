@@ -15,7 +15,7 @@
                         @csrf
 
                         @if(auth()->user()->suit($utilisateur))
-                            {{ method_field('delete') }}
+                             @method('delete')
                         @endif
                         <button type="submit" class="btn btn-outline-success btn-sm">
                             @if(auth()->user()->suit($utilisateur))
