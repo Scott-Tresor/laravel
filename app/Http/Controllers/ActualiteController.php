@@ -8,6 +8,9 @@ class ActualiteController extends Controller
 {
     public function liste()
     {
-        return view('actualite');
+        $messages = [];
+        return view('actualites',[
+            'messages' => $messages,
+        ]);
     }
 }
