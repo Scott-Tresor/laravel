@@ -8,7 +8,9 @@ class ActualiteController extends Controller
 {
     public function liste()
     {
-        $messages = [];
+        $messages = auth()->user()->suivis->map(function ($utilisateur) {
+            return $utilisateur->messages;
+        })->flatten();
         return view('actualites',[
             'messages' => $messages,
         ]);
